@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+console.log("-------------------------------------")
+console.log("جمع عددين داخل قيمة نصية ");
+console.log("-------------------------------------")
+
+      function addStrNums(num1, num2) {
+      if(Number(num1) >=0 && Number(num2) >=0 )
+      return String(Number(num1)+Number(num2));
+      else
+      return "-1";
+      }
+console.log(addStrNums("hello"," 50"));
+
+console.log("-------------------------------------")
+console.log("فصل الكلمات ");
+console.log("-------------------------------------")
+function capSpace(txt) {
+  var arr=txt.split('');
+      var reslut="";
+      for (let i = 0; i < arr.length; i++) {
+          if(arr[i] ==arr[i].toUpperCase())
+      {
+            arr[i]=" "+arr[i];
+       }
+      reslut= (reslut + arr[i]).toLowerCase();
+
+      }
+     return reslut;
+}
+console.log(capSpace("helloWorld!"));
+           
+console.log("-------------------------------------")
+console.log(" التحويل من 12 ساعة إلى 24 ساعة والعكس");
+console.log("-------------------------------------")
+
+       console.log("time");
+      console.log("------");
+      function convertTime(time) {
+        var hou=time.split(":");
+        var sec=hou[1].split(" ");
+         if(sec[1]=="am" || sec[1]=="pm")
+        { 
+          if(sec[1]=="am")
+          {
+            if(Number(hou[0])==12)
+            {
+              return Number(hou[0])-12+":"+sec[0];
+            }
+            else{
+              return Number(hou[0])+":"+sec[0];
+            }
+          }
+         else
+         {
+          if(Number(hou[0])==12){
+            return Number(hou[0])+":"+sec[0];
+          }
+          else
+          {
+            return Number(hou[0])+12+":"+sec[0];
+          }
+         }
+        }
+        else
+        {
+           if(Number(hou[0])>=12)
+          {
+            return Number(hou[0])-12+":"+sec[0]+" pm";
+          }
+          else
+          {
+            return Number(hou[0])+0+":"+sec[0]+" am";
+          }
+        }
+      }
+  console.log(convertTime("12:00 pm"));
+
+ 
+console.log("-------------------------------------")
+console.log(" أحرف العلة");
+console.log("-------------------------------------")
+
+function firstNVowels(phrase, n) {
+  var arr=phrase.split("");
+              var letterS=[];
+              var a=false;
+              arr.forEach(items=>{
+                  if(items.toLowerCase() =="i" ||items.toLowerCase() =="o"||items.toLowerCase() =="u"||items.toLowerCase() =="a"||items.toLowerCase() =="e")
+                  {
+                    if(letterS.length<n){
+                        letterS.push(items);
+                   }
+                   else
+                   {
+                        a=true
+                   }
+
+                  }
+               })
+               
+               if(a==true){
+                 return 'invalid'
+               }else
+                 return letterS.join('');
+  
+}
+
+firstNVowels("ProgrAmmEr",3);
+
+console.log("-------------------------------------")
+console.log("التحقق من العملية الرياضية");
+console.log("-------------------------------------")
+
+function mathExpr(expr) {
+ var exprestion=expr.split("");
+ var reslut =true
+ for(var x=0;x<exprestion.length;x++)
+ {
+   if(isNaN(exprestion[x]) ==false || exprestion[x] =="*"||exprestion[x]=="+"||exprestion[x]=="/"||exprestion[x]=="-")
+   {
+      console.log("true")
+   }
+   else
+   {
+    reslut =false;
+    break;
+   }
+ }
+ if(reslut ==true)
+ {
+   return true;
+ }
+ else
+ {
+   return false;
+ }
+  
+}
+console.log(mathExpr("4+2"));
+
+console.log("-------------------------------------")
+console.log("تحديد الأعداد الفردية و الزوجية");
+console.log("-------------------------------------")
+function oddsVsEvens(num) {
+   var even =0;
+  var odd =0;
+  var myArr = String(num).split("").map((num)=>{
+  return Number(num)
+});
+ for(var x=0;x<myArr.length;x++ )
+ {
+    if (Number(myArr[x]) % 2 == 0 )
+   {  
+     even+=Number(myArr[x]);
+    }
+   else
+   {
+    odd+=Number(myArr[x]);
+   }
+ }
+ if(even>odd)
+ {
+  return "even greate than odd"
+ }
+ else if(even<odd)
+ {
+  return "odd greate than even"
+ }
+ else
+ {
+  return "equal"
+ }
+ }
+console.log(oddsVsEvens(121));
+
+console.log("-------------------------------------")
+console.log(" تحويل رقم ثماني إلى  رقم ثنائي");
+console.log("-------------------------------------")
+function octToBin(octal) {
+  if(Number(octal) ==0)
+  {
+    return String(0);
+  }
+  else
+  {
+    var arrOtc=octal.split("");
+   var bin="";
+   var x=arrOtc.length-1; 
+  while(x>=0)
+  {
+    if(x ==0)
+  {
+   console.log('true')
+    switch(arrOtc[0])
+    {
+      case "0":
+      bin=""+bin;
+       break;
+      case "1":
+      bin='1'+bin;
+      break;
+      case "2":
+      bin='10'+bin;
+       break;
+      case "3":
+      bin='11'+bin;
+       break;
+      case "4":
+      bin='100'+bin;
+       break;
+      case "5":
+      bin='101';
+       break;
+      case "6":
+      bin='110';
+      break;
+      default:
+      bin='111'+bin;
+  }
+ 
+  } 
+ else{
+   console.log('flase')
+    switch(arrOtc[x])
+    {
+      case "0":
+      bin='000'+bin;
+       break;
+      case "1":
+      bin='001'+bin;
+      break;
+      case "2":
+      bin='010'+bin;
+       break;
+      case "3":
+      bin='011'+bin;
+       break;
+      case "4":
+      bin='100'+bin;
+       break;
+      case "5":
+      bin='101'+bin;
+        break;
+      case "6":
+      bin='110';
+      break;
+      default:
+      bin='111'+bin;
+      console.log(bin)
+      break;
+    }
+   }
+    x--;
+  }
+    return bin
+  }
+   }
+ console.log(octToBin("000"));
+
+console.log("-------------------------------------")
+console.log("تحويل رقم ثنائي إلى رقم ثماني");
+console.log("-------------------------------------")
+function binToOct(b) {
+   var arraBinary=b.split("");
+    var i=0;
+  var number=[];
+  while(i<arraBinary.length)
+  {
+    var x=0;
+    var tem="";
+    if(arraBinary.length >2)
+    {
+      while(x<3)
+      {
+         x++;
+        i++;
+        tem+=arraBinary[arraBinary.length-i];
+      }
+    }
+    else
+    {
+      tem+=arraBinary[arraBinary.length-i];
+
+    }
+      number.push(tem);
+    }
+    for(var x=0;x<number.length;x++)
+    {
+        console.log(number[x])
+    }
+  }
+ console.log(binToOct("1000000000"));
+
+    </script>
+  </body>
+</html>
